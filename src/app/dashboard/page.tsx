@@ -12,6 +12,7 @@ import {
   SidebarInset,
   SidebarProvider,
 } from "@/components/ui/sidebar";
+import { NewRFQDialog } from "@/components/data-table"
 
 import data from "./data.json";
 
@@ -30,6 +31,7 @@ function DashboardContent() {
       } as React.CSSProperties}
     >
       <AppSidebar variant="inset" />
+      <NewRFQDialog />
       <SidebarInset>
         <SiteHeader />
         <div className="flex flex-1 flex-col">
