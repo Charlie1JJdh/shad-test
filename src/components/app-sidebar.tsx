@@ -2,24 +2,25 @@
 
 import * as React from "react"
 import {
-  IconCamera,
-  IconChartBar,
-  IconDashboard,
-  IconDatabase,
-  IconFileAi,
+  IconFileDollar,
+  IconFileInvoice,
   IconFileDescription,
-  IconFileWord,
-  IconFolder,
+  IconTruckDelivery,
+  IconFiles,
+  IconCreditCard,
+  IconCashBanknote,
+  IconShoppingCart,
+  IconUser,
   IconHelp,
   IconInnerShadowTop,
-  IconListDetails,
-  IconReport,
   IconSearch,
   IconSettings,
-  IconUsers,
+  IconDashboard,
+  IconFolder,
+  IconBuildingWarehouse,
+  IconUserCircle,
 } from "@tabler/icons-react"
 
-import { NavDocuments } from "@/components/nav-documents"
 import { NavMain } from "@/components/nav-main"
 import { NavSecondary } from "@/components/nav-secondary"
 import { NavUser } from "@/components/nav-user"
@@ -40,80 +41,85 @@ const data = {
     avatar: "/avatars/shadcn.jpg",
   },
   navMain: [
+    // Dashboard
     {
       title: "Dashboard",
       url: "#",
-      icon: IconDashboard,
+      icon: IconDashboard
+    } as const,
+    
+    // Trading Section
+    {
+      title: "Trading",
+      isSection: true as const
     },
     {
-      title: "Lifecycle",
+      title: "RFQs",
       url: "#",
-      icon: IconListDetails,
+      icon: IconFileDollar,
+      isSection: false
     },
     {
-      title: "Analytics",
+      title: "Quotes",
       url: "#",
-      icon: IconChartBar,
+      icon: IconFileInvoice,
+      isSection: false
     },
     {
-      title: "Projects",
+      title: "Contracts",
       url: "#",
-      icon: IconFolder,
-    },
-    {
-      title: "Team",
-      url: "#",
-      icon: IconUsers,
-    },
-  ],
-  navClouds: [
-    {
-      title: "Capture",
-      icon: IconCamera,
-      isActive: true,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Proposal",
       icon: IconFileDescription,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
+      isSection: false
     },
     {
-      title: "Prompts",
-      icon: IconFileAi,
+      title: "Shipments",
       url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
+      icon: IconTruckDelivery,
+      isSection: false
+    },
+    
+    // Operations Section
+    {
+      title: "Operations",
+      isSection: true as const
+    },
+    {
+      title: "Documents",
+      url: "#",
+      icon: IconFiles,
+      isSection: false
+    },
+    {
+      title: "Payments",
+      url: "#",
+      icon: IconCreditCard,
+      isSection: false
+    },
+    {
+      title: "Financing",
+      url: "#",
+      icon: IconCashBanknote,
+      isSection: false
+    },
+    
+    // Account Section
+    {
+      title: "Account",
+      isSection: true
+    } as const,
+    {
+      title: "Orders",
+      url: "#",
+      icon: IconShoppingCart,
+      isSection: false
+    },
+    {
+      title: "Settings",
+      url: "#",
+      icon: IconSettings
     },
   ],
+  navClouds: [],
   navSecondary: [
     {
       title: "Settings",
@@ -131,23 +137,7 @@ const data = {
       icon: IconSearch,
     },
   ],
-  documents: [
-    {
-      name: "Data Library",
-      url: "#",
-      icon: IconDatabase,
-    },
-    {
-      name: "Reports",
-      url: "#",
-      icon: IconReport,
-    },
-    {
-      name: "Word Assistant",
-      url: "#",
-      icon: IconFileWord,
-    },
-  ],
+  documents: [],
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -162,7 +152,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             >
               <a href="#">
                 <IconInnerShadowTop className="!size-5" />
-                <span className="text-base font-semibold">Acme Inc.</span>
+                <span className="text-base font-semibold">NowExo Platform</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -170,7 +160,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavDocuments items={data.documents} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
