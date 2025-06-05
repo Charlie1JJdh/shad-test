@@ -6,6 +6,8 @@ import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import { 
   DropdownMenu, 
   DropdownMenuContent, 
@@ -15,7 +17,6 @@ import {
   DropdownMenuCheckboxItem,
   DropdownMenuSeparator
 } from "@/components/ui/dropdown-menu"
-import { Input } from "@/components/ui/input"
 import { 
   Table, 
   TableBody, 
@@ -41,6 +42,16 @@ import {
 } from "@tanstack/react-table"
 import { GripVertical } from "lucide-react"
 import Flag from "react-flagkit"
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
 import { 
   IconChevronDown,
   IconChevronLeft,
@@ -74,6 +85,7 @@ export const tableSchema = z.object({
   target: z.string(),
   limit: z.string(),
   reviewer: z.string(),
+  origin: z.string(),
 })
 
 type TableRow = z.infer<typeof tableSchema>
@@ -109,9 +121,56 @@ function DragHandle({ id }: { id: number }) {
   )
 }
 
-// Simple cell viewer component
+// Cell viewer with sheet component
 function TableCellViewer({ item }: { item: TableRow }) {
-  return <div className="font-medium">{item.header}</div>
+  return (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button variant="link" className="h-auto p-0 text-base font-medium">
+          {item.header}
+        </Button>
+      </SheetTrigger>
+      <SheetContent side="right" className="w-[450px] p-6">
+        <SheetHeader className="mb-6">
+          <SheetTitle className="text-2xl font-semibold">Order Details</SheetTitle>
+          <SheetDescription className="text-sm">
+            View and manage the details of this order
+          </SheetDescription>
+        </SheetHeader>
+        <div className="space-y-6">
+          <div className="space-y-4">
+            <div className="grid gap-1.5">
+              <Label htmlFor="category" className="text-sm font-medium text-muted-foreground">Category</Label>
+              <Input id="category" value={item.type} readOnly className="bg-muted/50" />
+            </div>
+            <div className="grid gap-1.5">
+              <Label htmlFor="status" className="text-sm font-medium text-muted-foreground">Status</Label>
+              <Input id="status" value={item.status} readOnly className="bg-muted/50" />
+            </div>
+            <div className="grid gap-1.5">
+              <Label htmlFor="quantity" className="text-sm font-medium text-muted-foreground">Quantity (MT)</Label>
+              <Input id="quantity" value={item.target} readOnly className="bg-muted/50" />
+            </div>
+            <div className="grid gap-1.5">
+              <Label htmlFor="price" className="text-sm font-medium text-muted-foreground">Price (USD/MT)</Label>
+              <Input id="price" value={`$${item.limit?.toLocaleString()}`} readOnly className="bg-muted/50" />
+            </div>
+            <div className="grid gap-1.5">
+              <Label htmlFor="origin" className="text-sm font-medium text-muted-foreground">Origin</Label>
+              <Input id="origin" value={item.origin} readOnly className="bg-muted/50" />
+            </div>
+          </div>
+        </div>
+        <SheetFooter className="mt-8">
+          <SheetClose asChild>
+            <Button type="button" variant="outline" className="w-full">
+              Close
+            </Button>
+          </SheetClose>
+        </SheetFooter>
+      </SheetContent>
+    </Sheet>
+  )
 }
 
 const columns: ColumnDef<TableRow>[] = [
