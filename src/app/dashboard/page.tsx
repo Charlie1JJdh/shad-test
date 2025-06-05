@@ -43,16 +43,7 @@ function DashboardContent() {
             </div>
           </div>
         </div>
-        <div className="absolute top-4 right-4">
-          <div className="flex items-center gap-4">
-            <span className="text-sm text-muted-foreground">
-              Welcome, {user?.name || 'User'}!
-            </span>
-            <Button variant="outline" size="sm" onClick={handleLogout}>
-              Logout
-            </Button>
-          </div>
-        </div>
+
       </SidebarInset>
     </SidebarProvider>
   );
