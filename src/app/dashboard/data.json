@@ -6,8 +6,7 @@
     "status": "Processing",
     "target": "50,000",
     "limit": "2.50",
-    "reviewer": "Golden Grains Ltd.",
-    "origin": ""
+    "reviewer": "Golden Grains Ltd."
   },
   {
     "id": 2,
@@ -16,8 +15,7 @@
     "status": "In Transit",
     "target": "10,000",
     "limit": "12.99",
-    "reviewer": "Mediterranean Oils Co.",
-    "origin": ""
+    "reviewer": "Mediterranean Oils Co."
   },
   {
     "id": 3,
@@ -26,8 +24,7 @@
     "status": "Delivered",
     "target": "5,000",
     "limit": "8.75",
-    "reviewer": "Highland Coffee Inc.",
-    "origin": ""
+    "reviewer": "Highland Coffee Inc."
   },
   {
     "id": 4,
@@ -36,8 +33,7 @@
     "status": "Processing",
     "target": "20,000",
     "limit": "15.30",
-    "reviewer": "NutriHarvest",
-    "origin": ""
+    "reviewer": "NutriHarvest"
   },
   {
     "id": 5,
@@ -46,8 +42,7 @@
     "status": "On Hold",
     "target": "8,000",
     "limit": "22.45",
-    "reviewer": "Ocean's Bounty",
-    "origin": ""
+    "reviewer": "Ocean's Bounty"
   },
   {
     "id": 6,
@@ -56,8 +51,7 @@
     "status": "In Transit",
     "target": "15,000",
     "limit": "6.80",
-    "reviewer": "Andean Harvest",
-    "origin": ""
+    "reviewer": "Andean Harvest"
   },
   {
     "id": 7,
@@ -66,8 +60,7 @@
     "status": "Processing",
     "target": "3,000",
     "limit": "45.99",
-    "reviewer": "New Zealand Nature",
-    "origin": ""
+    "reviewer": "New Zealand Nature"
   },
   {
     "id": 8,
@@ -76,8 +69,7 @@
     "status": "Delivered",
     "target": "2,500",
     "limit": "28.50",
-    "reviewer": "Truffle Masters",
-    "origin": ""
+    "reviewer": "Truffle Masters"
   },
   {
     "id": 9,
@@ -86,8 +78,7 @@
     "status": "Processing",
     "target": "12,000",
     "limit": "9.99",
-    "reviewer": "Health Harvest",
-    "origin": ""
+    "reviewer": "Health Harvest"
   },
   {
     "id": 10,
@@ -96,7 +87,6 @@
     "status": "In Transit",
     "target": "500",
     "limit": "120.00",
-    "reviewer": "Persian Spice Co.",
-    "origin": ""
+    "reviewer": "Persian Spice Co."
   }
 ]
