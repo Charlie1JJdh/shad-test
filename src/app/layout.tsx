@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/contexts/auth-context";
 import { RFQDialogProvider } from "@/contexts/RFQDialogContext";
+import { NewRFQDialog } from "@/components/data-table";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({
         <AuthProvider>
           <RFQDialogProvider>
             {children}
+            <NewRFQDialog />
           </RFQDialogProvider>
         </AuthProvider>
       </body>

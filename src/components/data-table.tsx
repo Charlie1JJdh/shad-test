@@ -774,9 +774,6 @@ export function NewRFQDialog() {
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogTrigger asChild>
-        <Button variant="outline">New RFQ</Button>
-      </DialogTrigger>
       <DialogContent className="sm:max-w-[600px]">
         <form onSubmit={handleSubmit}>
           <DialogHeader>
